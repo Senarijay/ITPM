@@ -19,5 +19,7 @@ namespace ITPM.Models
         public DbSet<FeedbackClass> FeedbackTable { get; set; }
 
         public DbSet<NewMemberClass> MemberTable { get; set; }
+
+        public DbSet<NewCont> ContactTable { get; set; }
     }
 }
