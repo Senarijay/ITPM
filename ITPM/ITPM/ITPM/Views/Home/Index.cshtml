@@ -1,1 +1,429 @@
-﻿
+﻿@using ITPM.Models;
+
+@model List<CoachClass>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<style>
+
+    body {
+        padding: 25px;
+        background-color: white;
+        color: black;
+    }
+
+    .dark-mode {
+        background-color: #000058;
+        /*color: white;*/
+    }
+
+
+
+    .social-cover {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    .cover-container {
+        height: 350px;
+        margin-top: -25px;
+        background-image: url();
+        background-size: cover;
+        position: relative;
+        margin-bottom: 25px;
+        background-position: center
+    }
+
+    .btn-brightblue.btn-inverse.btn-outlined {
+        color: #fff;
+        border-color: #fff;
+    }
+
+    .border-black75 {
+        border-color: #1fb7e8 !important;
+    }
+
+    .btn-brightblue.btn-outlined {
+        color: #1fb7e8;
+        background: 0 0;
+    }
+
+    .social-avatar {
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 300px;
+        position: absolute;
+        background-color: #1fb7e8;
+    }
+
+    .photo {
+        width: 300px;
+    }
+
+    .social-desc {
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 300px;
+        position: absolute;
+    }
+
+        .social-desc div {
+            margin-left: 10%;
+            margin-top: 100px;
+        }
+
+    .fg-focus-white:focus,
+    .fg-hover-white:hover,
+    .fg-white,
+    .fg-white .tab-container.plain .nav-tabs .b-tab.active a,
+    .fg-white .fg-tab-active .tab-container .nav-tabs .b-tab.active a,
+    .fg-white .tab-container .nav-tabs .b-tab a {
+        color: #fff;
+    }
+
+    .fg-white {
+        opacity: 0.8;
+    }
+
+    .feed {
+        font-family: Bebas;
+        font-size: 19px;
+    }
+
+
+    .btn-orange75.btn-inverse.btn-outlined {
+        color: #fff;
+        border-color: #fff;
+    }
+
+    .btn-orange75.btn-outlined {
+        color: #EE682F;
+        background: 0 0;
+    }
+
+    .btn.btn-rounded {
+        line-height: 1;
+        border-radius: 100px;
+        height: auto !important;
+        padding: 15px !important;
+    }
+
+    .tag {
+        font-family: Bebas;
+        padding: 0px 240px;
+    }
+
+    .btn > .rubix-icon {
+        line-height: 1;
+        font-size: 18px;
+    }
+
+    .black {
+        font-size: 60px;
+    }
+
+    .social-like-count {
+        cursor: pointer;
+        display: inline-block;
+    }
+
+        .social-like-count > span {
+            margin-left: 25px;
+        }
+
+
+
+    .card {
+        width: 350px;
+        border: none;
+        height: 300px;
+        border-radius: 3px;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden
+    }
+
+    .p-info {
+        display: flex;
+        justify-content: space-between
+    }
+
+    .p-price {
+        position: absolute;
+        right: 10px;
+        top: 20px
+    }
+
+    .heart i {
+        font-size: 50px;
+        opacity: 0;
+        color: red
+    }
+
+        .heart i:hover {
+            color: red
+        }
+
+    .p-image img {
+        width: 200px;
+        transform: rotate(0);
+        transition: all 0.5s
+    }
+
+    .card:hover .heart i {
+        animation: heart 300ms ease-in forwards;
+        animation-delay: 500ms
+    }
+
+    .p-about {
+        position: absolute;
+        width: 170px;
+        font-size: 15px;
+        top: 140px;
+        left: -125px;
+        opacity: 0
+    }
+
+    .card:hover .p-about {
+        animation: content 300ms ease-in forwards
+    }
+
+    @@keyframes content {
+        0% {
+            opacity: 0
+        }
+
+        100% {
+            opacity: 1;
+            left: 25px
+        }
+    }
+
+    @@keyframes heart {
+        0% {
+            opacity: 0
+        }
+
+        100% {
+            opacity: 1
+        }
+    }
+
+    .card:hover .p-image img {
+        animation: onimage 300ms ease-in forwards
+    }
+
+    .card:hover .p-price {
+        animation: onprice 500ms ease-in forwards
+    }
+
+    @@keyframes onprice {
+        0% {
+            right: 10px;
+            top: 20px
+        }
+
+        50% {
+            right: 60px;
+            top: 30px
+        }
+
+        100% {
+            right: 207px;
+            top: 70px
+        }
+    }
+
+    @@keyframes onimage {
+        0% {
+            width: 180px
+        }
+
+        50% {
+            width: 150px;
+            transform: translateY(-30px);
+            transform: translateX(100px)
+        }
+
+        100% {
+            width: 130px;
+            top: 100px;
+            transform: translateY(100px);
+            transform: translateX(110px)
+        }
+    }
+
+    .buttons {
+        position: absolute;
+        bottom: -150px
+    }
+
+    .card:hover .buttons {
+        animation: buttons 500ms ease-in forwards;
+    }
+
+    @@keyframes buttons {
+        0% {
+            bottom: -100px
+        }
+
+        100% {
+            bottom: 20px
+        }
+    }
+
+    .btn {
+        height: 40px;
+        font-size: 16px;
+        width: 140px !important;
+        font-weight: 600;
+        color: white;
+        background-color: #000050
+    }
+
+        .btn:hover {
+            background-color: #37b7e8
+        }
+
+    a.btn.btn-outline-light:hover {
+        background-color: white
+    }
+    /*   i.fa{
+        font-size:2em;
+    }*/
+
+    #items {
+        background-color: #F8F8F8;
+    }
+</style>
+<body>
+    <section id="banner">
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="~/Images/Feedback/Untitled-2.png" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5 style="color:white !important">All progress takes place outside the comfort zone</h5>
+                        <p style="color:white !important">Time For Fitness</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="~/Images/Feedback/Untitled-1.png" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5 style="color:white !important">All progress takes place outside the comfort zone</h5>
+                        <p style="color:white !important">Time For Fitness</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+
+                    <img src="~/Images/Feedback/Untitled-3.png" class="d-block w-100" alt="...">
+
+
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5 style="color:black !important">All progress takes place outside the comfort zone</h5>
+                        <p style="color:white !important">Time For Fitness</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </section>
+    <br />
+    <br />
+
+
+
+    <from>
+        <section id="items">
+            <div class="row">
+                @foreach (var item in ViewBag.feeds)
+                {
+                    // if (@item.IQStock > 0){
+                    <div class="col-md-4" style="margin-top:20px">
+                        <div class="card p-2">
+                            <div class="p-info px-3 py-3">
+                                <div>
+                                    <h4 class="mb-0">@item.Cname</h4> <span>@item.Email</span>
+                                </div>
+                                <div class="p-price d-flex flex-row">
+                                    <span></span>
+                                    @*<h1>@item.Rate</h1>*@
+                                </div>
+                                <div class="heart"> <i class="bx bx-heart"></i> </div>
+                            </div>
+                            <div class="text-center p-image"> <img src="~/Images/Coaches/@item.ImageName"> </div>
+                            <div class="p-about">
+                                <p style="font-size:20px"><i class="fa fa-user" aria-hidden="true"></i> -<b>@item.CAge</b> <br><i class="fa fa-phone" aria-hidden="true"></i> -<b>@item.contactnumber</b> <br><i class="fa fa-star-half-o" aria-hidden="true"></i> -<b>@item.Rate</b> <br>@*Discount -<b>@item.IDiscount</b>*@<br></p>
+                            </div>
+                            <div class="buttons d-flex flex-row gap-3 px-3">
+                                <a asp-action="Detail" asp-controller="Home" asp-route-id="@item.CoachID" class="btn w-100 pull-right btn">Deatils</a>
+                            </div>
+                        </div>
+                    </div>
+                    // }
+                }
+            </div>
+        </section>
+    </from>
+
+
+    <br>
+    <br>
+    <div class="container bootstrap snippets bootdey">
+        <div class="cover-container">
+            <div class="social-cover">
+                <img src="~/Images/Feedback/gif.webp" width="973" height="350" />
+            </div>
+            <div class="social-desc">
+                <div class="visible-md visible-sm">
+                    <h1 class="fg-white black">Welcome to ABC Fitness Center</h1>
+                    <h5 class="fg-white tag">Share your experience with us</h5>
+                    <div style="margin-top:10px;">
+                    </div>
+                </div>
+            </div>
+            <div class="social-avatar">
+                <img class="photo" src="~/Images/Feedback/5_stars.gif">
+                <h4 class="fg-white text-center feed">OUR CUSTOMERS LOVE OUR SERVICE</h4>
+                <div class="text-center">
+                    <a class="btn btn-outline-light" asp-action="CreateFeed" asp-controller="Feedback"> Create Feed</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button onclick="myFunction()">Toggle dark mode</button>
+
+</body>
+
+<script>
+    function myFunction() {
+        var element = document.body;
+        element.classList.toggle("dark-mode");
+    }
+</script>
+
