@@ -1,0 +1,305 @@
+﻿@model ITPM.Models.CoachClass
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "_Layout4";
+}
+
+<style>
+    h1.hh {
+        color: #235CCD;
+        font-family: Roboto;
+        text-align: center;
+        font-weight: bold;
+        text-shadow: 2px 2px 8px #ABB2B9;
+        font-size: 45px;
+    }
+
+    h4.hhh {
+        color: black;
+        font-family: Roboto;
+        text-align: center;
+        font-weight: bold;
+        font-size: 35px;
+        text-shadow: 0px 0px 5px #235CCD;
+    }
+
+    th {
+        font-size: 20px;
+        font-family: Roboto;
+        font-weight: bold;
+        padding: 8px;
+        text-align: center
+    }
+
+    td {
+        font-size: 17px;
+        font-family: Roboto;
+        font-weight: normal;
+        padding: 8px;
+        text-align: center
+    }
+
+        td.btnsE {
+            filter: drop-shadow(8px 8px 10px gray);
+        }
+
+        td.btnsD {
+            filter: drop-shadow(8px 8px 10px gray);
+        }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    p {
+        padding-top: 40px;
+    }
+
+    th {
+        color: #235CCD;
+        background: #f2f2f2;
+    }
+
+    body {
+        font-family: Roboto;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    div.form-group1 {
+        padding-top: 5em;
+    }
+</style>
+
+
+<style>
+    .rating {
+        display: inline-block;
+        position: relative;
+        height: 45px;
+        line-height: 45px;
+        font-size: 45px;
+    }
+
+        .rating label {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            cursor: pointer;
+        }
+
+            .rating label:last-child {
+                position: static;
+            }
+
+            .rating label:nth-child(1) {
+                z-index: 5;
+            }
+
+            .rating label:nth-child(2) {
+                z-index: 4;
+            }
+
+            .rating label:nth-child(3) {
+                z-index: 3;
+            }
+
+            .rating label:nth-child(4) {
+                z-index: 2;
+            }
+
+            .rating label:nth-child(5) {
+                z-index: 1;
+            }
+
+            .rating label input {
+                position: absolute;
+                top: 0;
+                left: 0;
+                opacity: 0;
+            }
+
+            .rating label .icon {
+                float: left;
+                color: transparent;
+            }
+
+            .rating label:last-child .icon {
+                color: #fff5bd;
+            }
+
+        .rating:not(:hover) label input:checked ~ .icon,
+        .rating:hover label:hover input ~ .icon {
+            color: #ffdb00;
+        }
+
+        .rating label input:focus:not(:checked) ~ .icon:last-child {
+            color: #000;
+            text-shadow: 0 0 5px #09f;
+        }
+</style>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<h1 class="hh">Coaches Management</h1>
+
+<h4 class="hhh">Add a new coach</h4>
+
+<hr style="height: 2px; border-width: 0; color: gray; background-color: #235CCD" />
+
+
+<!--<div class="delivery">
+    <form asp-action="filldetails" style="padding-bottom:15px; text-align:center; padding-left:470px;  width:65%;">
+        <input name="pid" class="form-control" placeholder="Enter a Product ID..." required />-->
+@*<input type="submit"/>*@
+<!--<div class="sub" style="padding-top:5px;">
+            <button type="submit" class="btn btn-secondary" style=" font-family: Roboto;">Submit</button>
+        </div>
+    </form>
+</div>-->
+
+<form asp-action="Create" method="post" enctype="multipart/form-data">
+    <div class="p-4 rounded border row" style="background-color: #D3D3D3" ; filter: drop-shadow(8px 8px 10px gray); margin-bottom:40px">
+        <div asp-validation-summary="ModelOnly" class="text-danger">
+        </div>
+        <div class="col-8">
+            @*<h3>@ViewBag.message</h3>*@
+            @*<div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="CoachID"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="CoachID" class="form-control" value="@ViewBag.pid" />
+                </div>
+                <span asp-validation-for="CoachID" class="text-danger"></span>
+            </div>*@
+            @*<div class="form-group row">
+            <div class="col-4">
+                <label asp-for="Cname"></label>
+            </div>*@
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Cname"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Cname" class="form-control" />
+                </div>
+                <span asp-validation-for="Cname" class="text-danger"></span>
+            </div>
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="CAge"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="CAge" class="form-control" />
+                </div>
+                <span asp-validation-for="CAge" class="text-danger"></span>
+            </div>
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="contactnumber"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="contactnumber" class="form-control" />
+                </div>
+                <span asp-validation-for="contactnumber" class="text-danger"></span>
+            </div>
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Email"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Email" class="form-control" />
+                </div>
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Description"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Description" class="form-control" />
+                </div>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="ImageFile"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="ImageFile" accept="image/*" />
+                </div>
+                <span asp-validation-for="ImageFile" class="text-danger"></span>
+            </div>
+
+            <label asp-for="Rate" class="control-label"></label>
+            <div class="rating">
+                <label>
+                    <input type="radio" name="Rate" value="1" />
+                    <span class="icon">★</span>
+                </label>
+                <label>
+                    <input type="radio" name="Rate" value="2" />
+                    <span class="icon">★</span>
+                    <span class="icon">★</span>
+                </label>
+                <label>
+                    <input type="radio" name="Rate" value="3" />
+                    <span class="icon">★</span>
+                    <span class="icon">★</span>
+                    <span class="icon">★</span>
+                </label>
+                <label>
+                    <input type="radio" name="Rate" value="4" />
+                    <span class="icon">★</span>
+                    <span class="icon">★</span>
+                    <span class="icon">★</span>
+                    <span class="icon">★</span>
+                </label>
+                <label>
+                    <input type="radio" name="Rate" value="5" />
+                    <span class="icon">★</span>
+                    <span class="icon">★</span>
+                    <span class="icon">★</span>
+                    <span class="icon">★</span>
+                    <span class="icon">★</span>
+                </label>
+
+            </div>
+
+
+        </div>
+        <div class="col-1"></div>
+        <div class="col-3">
+            <img src="~/images/Coaches/working-out-workout copy.gif" asp-append-version="true" width="300px" height="300px" style="border-radius: 15px; filter: drop-shadow(8px 8px 10px #696969); " />
+            <div id="myresult" class="img-zoom-result"></div>
+            <div class="form-group1">
+                <div>
+                    <input type="submit" value="Create" class="btn btn-outline-primary" />
+                    <a asp-action="Index" value="Back" class="btn btn-outline-dark">Back to List</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</form>
+
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

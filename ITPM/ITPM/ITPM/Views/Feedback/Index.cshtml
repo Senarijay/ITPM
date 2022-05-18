@@ -1,0 +1,108 @@
+﻿@model IEnumerable<ITPM.Models.FeedbackClass>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+
+</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initail-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,700 " rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+<link href="https://fonts.google.com/specimen/Bebas+Neue?query=beba" rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.2/tailwind.min.css">
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=Fjm6PvxoeSb9xDhp8XVoaH3BAMYM7D6F7i4R14WyLCZbRUEUtyUl6ooyUaLhO55yQ8Ptifwfji2sMtbh9XbuXFPtuf1ZoAPcp12AtJNkY4Qv5siyLedx63qNvX4AXnuxoouNWOp3QN5sEFvwD-vefL7OBZmWsvtoFvYivbQ5v_UN4729gd77NQVUOjNn21i3KhRKdw-SxJoaVQGg6cUGNWLsa5qC8TitOyq3HABewJFiqSYLxZniNy_-ReYaOdQY1R-wxLZkIRoNbdW1as5xR6jzztWHviMPqTAU_zQW-4uFppBaQkvB0ZNIt_rMvRLNxQScY6BkDBWFii_ChilcRZPCgYXLOzfNpe0VJF2vLSvtZoAEYuk9vFjFuL14AAVd2aYnoowqm27VCsGfoZ26TMlzvTvlDvdMtpT0GSKJe9tmPjXHiC45i_5iWmEhd8JIJmx8l0Sgx_-k5W-GIf8rW68dNjx7juTJyVWnkTd9u21JwfqjNmxsxosWGTNz19DmefvaEVaV6kIuXoPwQch7ohosW8ysYTru5LjzsRo4Ex5Psj_G613uotPp3ZJISodXe81--YcyLaenJhUNYCfzvG4hm2orhDziPCIX8RAw5-r44pRbQjD8XpohWBlkDdMz3AYfe9j-sQ1nG9TH_G4on4obpgHE3T5JslqDZZ-b4BWfvJFevDrdajoOXkruxZCvqEgeE9PgcL2KwCe4FvOpzlhvubP0J7sp865ZMGM6t__FMWRIHVH-4zL4NSbPVce2RB_OUPgo-h-bwe2YoEaWkYB_k7s7D_wyxjQ9vhFBmHFgRa4NTxFzEVv31NORHJ64C4JgbEEZHvz970DZX2czR1LGiAJB3IyDMaObaItcLkQ81vUMxFYtijL1oYH6SFFi19adGRDxTZAOM_TUqWiBAz9ILCB1ziyEVO2Ty9OnFvWa7uq04nf8KGbFDTc7HfQ7t4t9PbhVB67hw2ZCTg-Jzvxf2YunLx9lSVdVac8NBHTAT7z2rq9B3prPHYB_9ouD9u-Gkb7kuNZxZP6L6HKAK6--2pT-5V_8-yqQS9wp8UAk33lzQ089Wwb5bmTC6Vcnjf6wafcBEQLboLVK9XlqUCOmXSz1QxdSKsYCgvbAwpZYm3GbZoo0eFXNatex2DuZvPVdA8FVxZTxDXqMW2ZpfFdUrk2ZqX1x8jdxCOX_IlncDu8PuehYMhFPE5keys0JYKv3m6Qf_gXfIDyfalw-zg" nonce="6b9214f20697263e61902ba1cbd5cfee" charset="UTF-8"></script>
+<link rel="stylesheet" crossorigin="anonymous" href="https://gc.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9tYWlsLWF0dGFjaG1lbnQuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2F0dGFjaG1lbnQvdS8wLz91aT0yJmlrPWQ4NjcxYjI3MDEmYXR0aWQ9MC4xJnBlcm1tc2dpZD1tc2ctYTpyLTczOTgxMDYzNjQ0MjQ0NDAxNTgmdGg9MTdiYWQzZWE3MmIxZTNkNiZ2aWV3PWF0dCZkaXNwPXNhZmUmcmVhbGF0dGlkPWZfa3Q0czY4djQwJnNhZGRiYXQ9QU5HamRKLUgxWlcxTXZCU0RHclFRbG5NNDNkNFFaRlZVeFdzNGhyRXRDOXhvcVVCSDRpbHJsQWFINTZIZzJ1YU9PNmFDTkpQZEF2QUNNS2RrbzBzSWJMNTNwWncwdVdRZWZJSkVfSGFvU0t0a1lxU0EzRWtmWUJWMEl4ZXVrM05OZ21kZzhwS2hwcVNYZ212cjNFY3p1d25QVnEzbmliajhGUEN6SzAwd3ZBcEh2YVU3VkkxRTI4cnhMWXZmVFRYLTNJc3B4eGRsVTkyOGpCVkJFYnJQWkdPUXlsNDBBM0MzZk5TZWVkQ201ZkdYbDQtSF9iUVlOdXVxLW54emRSX21YeWR1Vi1fTWEybF9ES25mQU5qYTc3MHdSb0J2dW9YR3F1MWRGdk9XdXdtZ29FR0dMWkdpMVduSzdudkMxT2RaOXV4dEFlVW5WcFdUTHh5QlFzd2F4b2U2SGlQZVdKbFFVOGJaTERXNnpzYWU3Zk0xTDBvREgzTWkxMVVQZV9XX2VpWE5NZlBlMlVvcUpucnJpUmxSVXJWMzktTTk1N0NMMWpsSm1kYUhmS2lhdHRjNjVQaGFGY1ZIa1VNdWtMZFZsdEl0b0FkVVJxQ2E3NDJNQ3RrWW8tUXl1NHRaOWRXUGxKVUoxTHN6blRRMktBTXI1a21aRlZ3d25uOHFTOVJPOWhWZ2RiU2NfREZGTDkwU3ZzdnBkSjVrSWpNOHN5elpzbk5QVEhHQUtDWENELXpKRjU1bl9aRXhoM193ZjBBeGRWM3JVN1hSMzJmQ0FmUzZIYWstdkF0a0RiNU9KWWF3Xzg3cmlSVHZxd2xyV3lQQmNJMHkydkE2YnNiYldBelFieUpfdDItdGFkVVFHYk96VXZkQmpQWTlHekZCbUFjZWxmQkNvTmtLVGo1NERMQ3UwWEpqYmYtTDU1WFp6OA" />
+
+<style>
+
+
+
+    .Sec{
+        width:auto;
+        height:300px;
+    }
+    .head1 {
+        text-align: center;
+        font-family: Bebas;
+        font-size: 72px;
+        background: -webkit-linear-gradient(#4800ff, #0094ff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    .my-custom-scrollbar{
+        position: relative;
+        height: 700px;
+        width: auto;
+        overflow-x: auto;
+    }
+
+    .table-wrapper-scroll-y {
+        display: inline-block;
+    }
+    .head2 {
+        text-align: center;
+        font-size: 25px;
+    }
+
+</style>
+
+
+<!-- Section 2 -->
+
+<h1 class="head1">Feel Free to Express Your Feelings</h1>
+<h1 class="head2">Customer Feedbacks</h1>
+
+
+
+<section id="Feeds" class="flex items-center justify-center py-16 bg-gray-100 min-w-screen">
+    <div class="max-w-6xl px-12 mx-auto bg-gray-100 md:px-16 xl:px-10">
+        <div class="flex flex-col items-center lg:flex-row">
+            <div class="flex flex-col items-start justify-center w-full h-full pr-8 mb-10 lg:mb-0 lg:w-1/2">
+                <p class="mb-2 text-base font-medium tracking-tight text-indigo-500 uppercase">Feel Free to Express Your Feelings</p>
+                <h2 class="text-4xl font-extrabold leading-10 tracking-tight text-gray-900 sm:text-5xl sm:leading-none md:text-6xl lg:text-5xl xl:text-6xl">FEEDBACKS</h2>
+                <p class="my-6 text-lg text-gray-600">Don't just take our word for it, read from our extensive list of case studies and customer testimonials.</p>
+                <a asp-action="CreateFeed" asp-controller="Feedback" class="flex items-center justify-center px-8 py-3 text-base font-medium leading-6 text-white transition duration-150 ease-in-out bg-indigo-600 border border-transparent rounded-md shadow hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo md:py-4 md:text-lg md:px-10">Create Feedback</a>
+            </div>
+
+            <div class="w-full lg:w-1/2 table-wrapper-scroll-y my-custom-scrollbar">
+                <form method="get" asp-action="Index">
+                    <p>
+                        <input type="search" placeholder="  Enter First Name Or Last Name" value="@ViewData["Getfeeddeatils"]" name="feedsearch" style="height:40px; width:430px; border-radius:10px; padding-left:10px;" />
+                        <input type="submit" value="Search" class="btn btn-primary" />
+                        <a asp-action="Index" class="btn btn-outline-danger" >Get All</a>
+                    </p>
+
+                </form>
+                @foreach (var item in Model)
+                {
+
+                    <blockquote class="flex items-center justify-between w-full col-span-1 p-6 mt-4 bg-white rounded-lg shadow">
+                        <div class="flex flex-col pr-10">
+                            <div class="relative pl-12">
+                                <svg class="absolute left-0 w-10 h-10 text-indigo-500 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 125">
+                                    <path d="M30.7 42c0 6.1 12.6 7 12.6 22 0 11-7.9 19.2-18.9 19.2C12.7 83.1 5 72.6 5 61.5c0-19.2 18-44.6 29.2-44.6 2.8 0 7.9 2 7.9 5.4S30.7 31.6 30.7 42zM82.4 42c0 6.1 12.6 7 12.6 22 0 11-7.9 19.2-18.9 19.2-11.8 0-19.5-10.5-19.5-21.6 0-19.2 18-44.6 29.2-44.6 2.8 0 7.9 2 7.9 5.4S82.4 31.6 82.4 42z"></path>
+                                </svg>
+                                <p class="mt-2 text-sm text-gray-600 sm:text-base lg:text-sm xl:text-base">@Html.DisplayFor(modelItem => item.FeedDes)</p>
+                            </div>
+                            <h3 class="pl-12 mt-3 text-sm font-medium leading-5 text-gray-800 truncate sm:text-base lg:text-sm lg:text-base">
+                                @Html.DisplayFor(modelItem => item.FName) @Html.DisplayFor(modelItem => item.LName)
+                                <span class="mt-1 text-sm leading-5 text-gray-500 truncate"></span>
+                            </h3>
+                            <p class="mt-1 text-sm leading-5 text-gray-500 truncate"></p>
+                        </div>
+                        @*<img class="flex-shrink-0 w-24 h-24 bg-gray-300 rounded-full" src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;aauto=format&amp;fit=facearea&amp;facepad=4&amp;w=256&amp;h=256&amp;q=60" alt="">*@
+                    </blockquote>
+
+                }
+
+            </div>
+        </div>
+    </div>
+</section>

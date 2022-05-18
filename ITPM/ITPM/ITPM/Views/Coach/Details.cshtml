@@ -1,0 +1,173 @@
+﻿@model ITPM.Models.CoachClass
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "_Layout4";
+}
+<html>
+<head>
+
+    <style>
+        h1.hh {
+            color: #235CCD;
+            font-family: Roboto;
+            text-align: center;
+            font-weight: bold;
+            text-shadow: 2px 2px 8px #ABB2B9;
+            font-size: 45px;
+        }
+
+        h4.hhh {
+            color: black;
+            font-family: Roboto;
+            text-align: center;
+            font-weight: bold;
+            font-size: 35px;
+            text-shadow: 0px 0px 5px #235CCD;
+        }
+
+        div.col-8.col-4 {
+            font-size: 20px;
+            font-family: Roboto;
+            font-weight: normal;
+        }
+
+        div.col-3 {
+            font-size: 20px;
+            font-family: Roboto;
+            font-weight: bold;
+            color: black;
+            text-align: center;
+            filter: drop-shadow(8px 8px 10px #696969);
+        }
+
+        div.col-8 {
+            font-size: 20px;
+            font-family: Roboto;
+            font-weight: bold;
+            color: #235CCD;
+        }
+
+        div.form-group1 {
+            padding-top: 5em;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+       
+    </style>
+
+
+   
+</head>
+<body>
+
+    <h1 class="hh">Coaches Management</h1>
+
+    <h4 class="hhh">Coach Details</h4>
+    <hr style="height: 2px; border-width: 0; color: gray; background-color: #235CCD" />
+
+    <form asp-action="" method="post" enctype="multipart/form-data">
+        <div class="p-4 rounded border row" style="background-color: #D3D3D3" ; filter: drop-shadow(8px 8px 10px gray); margin-bottom: 40px">
+            <div asp-validation-summary="ModelOnly" class="text-danger">
+
+            </div>
+            <div class="col-8">
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="CoachID"></label>
+                    </div>
+                    <div class="col-8">
+                        <input type="hidden" asp-for="CoachID" />
+                        <input asp-for="CoachID" readonly="readonly" class="form-control" />
+                    </div>
+                    <span asp-validation-for="CoachID" class="text-danger"></span>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Cname"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Cname" readonly="readonly" class="form-control" />
+                    </div>
+                    <span asp-validation-for="Cname" class="text-danger"></span>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="CAge"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="CAge" readonly="readonly" class="form-control" />
+                    </div>
+                    <span asp-validation-for="CAge" class="text-danger"></span>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="contactnumber"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="contactnumber" readonly="readonly" class="form-control" />
+                    </div>
+                    <span asp-validation-for="contactnumber" class="text-danger"></span>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Email"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Email" readonly="readonly" class="form-control" />
+                    </div>
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Description"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Description" readonly="readonly" class="form-control" />
+                    </div>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Rate"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Rate" readonly="readonly" class="form-control" />
+                    </div>
+                    <span asp-validation-for="Rate" class="text-danger"></span>
+                </div>                                            
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="ImageName"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="ImageName" readonly="readonly" class="form-control" />
+                    </div>
+                    <span asp-validation-for="ImageName" class="text-danger"></span>
+                </div>
+
+            </div>
+            <div class="col-1"></div>
+            <div class="col-3">
+                
+                    Uploaded Image
+                    <img src="@("~/images/coaches/"+Model.ImageName)" id="myimage" asp-append-version="true" width="250px" height="250px" />
+                   
+                    <div class="form-group1">
+                        <div>
+                            @Html.ActionLink("Update", "Edit", new { id = Model.CoachID }, new { @class = "btn btn-outline-success" })
+                            <a asp-action="Index" value="Back" class="btn btn-outline-dark">Back to List</a>
+                        </div>
+                    </div>
+                
+
+            </div>
+        </div>
+    </form>
+
+   
+</body>
+</html>
