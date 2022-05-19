@@ -1,0 +1,99 @@
+﻿@model IEnumerable<ITPM.Models.NewCont>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "_Layout8";
+}
+
+
+<style>
+    .head3 {
+        text-align: center;
+        font-family: Bebas;
+        font-size: 72px;
+        background: -webkit-linear-gradient(#4800ff, #0094ff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+</style>
+
+<h1 class="head3">Contact Dashboard</h1>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+
+</script>
+
+
+<form method="get" asp-action="Index">
+    <p>
+        <input type="search" placeholder="  Enter First Name Or Last Name" value="@ViewData["Getcontactdeatils"]" name="Contsearch" style="height:40px; width:800px; border-radius:10px;" />
+        <input type="submit" value="Search" class="btn btn-primary" />
+        <a asp-action="Index" class="btn btn-outline-danger">Get All Messages</a>
+        <button id="report" class="btn btn-success" style="margin-left:40px;">Generate ContactUs Report</button>
+    </p>
+
+</form>
+
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Cid)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Fname)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Lname)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Phonen)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Cmessage)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cid)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Lname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Phonen)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cmessage)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Cid }, new { @class = "btn btn-primary" }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Cid }, new { @class = "btn btn-success" }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Cid }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script>
+    $('#report').click(function () {
+
+        window.open('../Cont/printcontact?param=1', '_blank');
+    });
+</script>
