@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using System;
@@ -35,12 +36,23 @@ namespace ITPM.Controllers
             _logger = logger;
         }
 
+        //public async Task<IActionResult> Index(String HomeSearch)
         public IActionResult Index()
         {
             var displaydata = _db.coaches.ToList();
             var feedbacks = _db.FeedbackTable.ToList();
             ViewBag.feeds = displaydata;
             return View();
+
+            //search
+            //ViewData["ViewStoerItems"] = HomeSearch;
+
+            //var homequery = from x in _db.coaches select x;
+            //if (!String.IsNullOrEmpty(HomeSearch))
+            //{
+            //    homequery = homequery.Where(x => x.Cname.Contains(HomeSearch) || x.Email.Contains(HomeSearch));
+            //}
+            //return View(await homequery.AsNoTracking().ToListAsync());
         }
 
         public IActionResult Privacy()
@@ -118,5 +130,6 @@ namespace ITPM.Controllers
             viewItemDetailsModel.ImageName = item.ImageName;
             return View(viewItemDetailsModel);
         }
+
     }
 }

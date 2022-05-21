@@ -32,16 +32,18 @@
         }
 
         #footer i {
-            font-size: 50px;
-            color: #0654AE;
+            font-size: 40px;
+            color: white;
         }
 
         .footertext {
             margin-top: 30px;
+      
         }
 
         .ft {
-            color: #0654AE;
+            /*color: #0654AE;*/
+            color: #37b7e8
         }
 
         .footertext a {
@@ -49,48 +51,58 @@
         }
 
         #footer {
-            background-color: #F8F8F8;
+            /*background-color: #F8F8F8;*/
+            background-color: #000050
         }
 
         .nav-link:hover {
-            color: #0099FF !important;
+            /*color: #0099FF !important;*/
+            color: white !important;
         }
 
         .btn-s:hover {
             background-color: #0099FF !important;
+        }
+
+        .search{
+            padding-left:57em
+        }
+
+        .description{
+            color:white
         }
     </style>
 
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg" style="background-color: #000050; margin:0.5em">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#"><img src="~/Images/Customer/fauget.png" id="logo" width="100"></a>
+                <a class="navbar-brand" href="#"><img src="~/Images/Customer/gymx.png" id="logo" width="50"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav" style="margin-top:15px;">
                         <li class="nav-item active" style="margin-left:40px;">
-                            <a class="nav-link" aria-current="page" asp-action="Index" asp-controller="Home">HOME</a>
+                            <a class="nav-link" style="color: #37b7e8" aria-current="page" asp-action="Index" asp-controller="Home"><b>HOME</b></a>
                         </li>
 
                         <li class="nav-item" style="margin-left:40px;">
-                            <a class="nav-link" aria-current="page" asp-action="AboutUs" asp-controller="Cont">ABOUT US</a>
+                            <a class="nav-link" style="color: #37b7e8" aria-current="page" asp-action="AboutUs" asp-controller="Cont"><b>ABOUT US</b></a>
                         </li>
                         <li class="nav-item" style="margin-left:40px;">
-                            <a class="nav-link" aria-current="page" asp-action="Create" asp-controller="Cont">CONTACT US</a>
+                            <a class="nav-link" style="color: #37b7e8" aria-current="page" asp-action="Create" asp-controller="Cont"><b>CONTACT US</b></a>
                         </li>
-                        <li>
-                            <form method="get" asp-controller="Home" asp-action="Index" class="d-flex" style="width:400px;margin-left:40px;">
+                        <li class="search">
+                            <form method="get" asp-controller="Home" asp-action="Index" class="d-flex" style="width:400px;">
                                 <input class="form-control me-2" id="txtstext" type="search" value="@ViewData["ViewStoerItems"]" name="HomeSearch" placeholder="Search" aria-label="Search">
-                                <input type="submit" value="Search" class="btn btn-secondary" style="background-color: #0099FF !important;" />
+                                <input type="submit" value="Search" class="btn btn-outline-info" @*style="background-color: #0099FF !important;"*@ />
                             </form>
                         </li>
 
                     </ul>
-                    <ul class="navbar-nav ml-auto">
+                    @*<ul class="navbar-nav ml-auto">
                         <li>
                             <a class="nav-item " asp-controller="Home" asp-action="Cart" style="font-size:30px;color:#0099FF; text-decoration:none">
                                 <i class="fas fa-shopping-cart" style="margin-right:20px;margin-top:20px"></i>
@@ -107,7 +119,7 @@
                                 <li><a class="dropdown-item" href="#"></a></li>
                             </ul>
                         </li>
-                    </ul>
+                    </ul>*@
 
                 </div>
             </div>
@@ -122,10 +134,10 @@
     <section id="footer">
         <div class="container">
             <div class="row">
-                <div class="col-md-3" style="padding:50px;">
-                    <img src="~/Images/Customer/fauget.png" width="150" />
+                <div class="col-md-3" style="padding:30px;">
+                    <img src="~/Images/Customer/gymx.png" width="100" />
                     <div class="footertext">
-                        <p>
+                        <p class="description">
                             GYMX FITNESS CENTER<br>
                             No 321, Colombo road,<br>
                             Divulapitiya, Boralesgamuwa<br>
@@ -137,27 +149,27 @@
                     </div>
 
                 </div>
-                <div class="col-md-3" style="padding:80px;">
+                <div class="col-md-3" style="padding:30px;">
                     <h2 class="ft">COMPANY</h2>
                     <div class="footertext">
-                        <a href="#">About Us</a><br><br>
+                        <a href="#" style="color: #37b7e8">About Us</a><br><br>
                         @*<a href="#">Shop</a><br><br>*@
-                        <a href="#">Home</a>
+                        <a href="#" style="color: #37b7e8">Home</a>
                     </div>
                 </div>
-                <div class="col-md-3" style="padding:80px;">
+                <div class="col-md-3" style="padding:30px; ">
                     <h2 class="ft">COMMUNITY</h2>
                     <div class="footertext">
-                        <a href="#">Facebook</a><br><br>
-                        <a href="#">Intagram</a><br><br>
+                        <a href="#" style="color: #37b7e8">Facebook</a><br><br>
+                        <a href="#" style="color: #37b7e8">Intagram</a><br><br>
 
                     </div>
                 </div>
 
-                <div class="col-md-3" style="padding:80px;">
+                <div class="col-md-3" style="padding:30px;">
                     <h2 class="ft">RETURNS</h2>
                     <div class="footertext">
-                        <a href="#">Contact Us</a><br><br>
+                        <a href="#" style="color: #37b7e8">Contact Us</a><br><br>
 
 
                     </div>
