@@ -106,14 +106,15 @@
                 <div class="col-8">
 
                     @if (item != null)
-                    {
-                        <button type="submit" class="btn btn-danger form-control" asp-action="Remove" asp-route-id="@Model.CoachID">Remove to Cart</button>
+        {
+            <button type="submit" class="btn btn-danger form-control" asp-action="Remove" asp-route-id="@Model.CoachID">Remove to Cart</button>
 
-                    }
-                    else
-                    {
+        }
+        else
+        {
 
-                        <input type="submit" class="btn btn-info form-control" value="Make a Reservation" />
+                    <input type="submit" class="btn btn-info form-control" value="Make a Reservation" />
+                  
 
                     }
 

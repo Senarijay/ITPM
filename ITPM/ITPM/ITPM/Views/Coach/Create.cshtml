@@ -40,6 +40,28 @@
         text-align: center
     }
 
+    div.col-8.col-4 {
+        font-size: 20px;
+        font-family: Roboto;
+        font-weight: normal;
+    }
+
+    div.col-3 {
+        font-size: 20px;
+        font-family: Roboto;
+        font-weight: bold;
+        color: black;
+        text-align: center;
+        filter: drop-shadow(8px 8px 10px #696969);
+    }
+
+    div.col-8 {
+        font-size: 20px;
+        font-family: Roboto;
+        font-weight: bold;
+        color: #235CCD;
+    }
+
         td.btnsE {
             filter: drop-shadow(8px 8px 10px gray);
         }
@@ -170,7 +192,7 @@
 </div>-->
 
 <form asp-action="Create" method="post" enctype="multipart/form-data">
-    <div class="p-4 rounded border row" style="background-color: #D3D3D3" ; filter: drop-shadow(8px 8px 10px gray); margin-bottom:40px">
+    <div class="p-4 rounded border row" style="background-color: #D3D3D3; filter: drop-shadow(8px 8px 10px gray); margin-bottom: 40px">
         <div asp-validation-summary="ModelOnly" class="text-danger">
         </div>
         <div class="col-8">
@@ -213,7 +235,7 @@
                 <div class="col-8">
                     <input asp-for="contactnumber" class="form-control" />
                 </div>
-                <span asp-validation-for="contactnumber" class="text-danger"></span>
+                <span asp-validation-for="contactnumber" class="text-danger" ></span>
             </div>
             <div class="form-group row">
                 <div class="col-4">
@@ -243,7 +265,7 @@
                 <span asp-validation-for="ImageFile" class="text-danger"></span>
             </div>
 
-            <label asp-for="Rate" class="control-label"></label>
+            <label asp-for="Rate" class="control-label"></label><br />
             <div class="rating">
                 <label>
                     <input type="radio" name="Rate" value="1" />

@@ -15,6 +15,7 @@ namespace ITPM.Models
 
         public int CoachID { get; set; }
 
+        [RegularExpression(@"^[a-zA-Z\s]*$", ErrorMessage = "Name Should be Consists with letters")]
         [Required(ErrorMessage = "Enter CoachName")]
         [Display(Name = "Coach Name")]
         public string Cname { get; set; }
@@ -23,6 +24,8 @@ namespace ITPM.Models
         [Display(Name = "Age")]
         public int CAge{ get; set; }
 
+        [RegularExpression(@"^(\d{10})$", ErrorMessage = "Phone Number Should be Consists 10 Numbers")]
+        [DataType(DataType.PhoneNumber)]
         [Required(ErrorMessage = "Enter Contact Number")]
         [Display(Name = "Contact Number")]
         public int contactnumber { get; set; }
@@ -34,6 +37,7 @@ namespace ITPM.Models
 
         [Required(ErrorMessage = "Enter Description")]
         [Display(Name = "Description")]
+        [DataType(DataType.MultilineText)]
         public string Description { get; set; }
 
         [Required(ErrorMessage = "Add Stars")]
