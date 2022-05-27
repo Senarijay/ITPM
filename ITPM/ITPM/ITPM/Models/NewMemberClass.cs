@@ -11,6 +11,7 @@ namespace ITPM.Models
         [Key]
         public int Mid { get; set; }
 
+        [RegularExpression(@"^[a-zA-Z\s]*$", ErrorMessage = "Name Should be Consists with letters")]
         [Required(ErrorMessage ="Enter Member Name")]
         [Display(Name = "Member Name")]
         public String Mname { get; set; }
@@ -29,9 +30,10 @@ namespace ITPM.Models
         [Display(Name = "Address")]
         public String MAddress { get; set; }
 
+        [RegularExpression(@"^(\d{10})$", ErrorMessage = "Phone Number Should be Consists 10 Numbers")]
+        [DataType(DataType.PhoneNumber)]
         [Required(ErrorMessage = "Enter the Phone Number")]
         [Display(Name = "Phone Number")]
-        [StringLength(10)]
         public String Pnumber { get; set; }
 
 

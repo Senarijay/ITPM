@@ -33,12 +33,10 @@
     div.col-3 {
         font-size: 20px;
         font-family: Roboto;
-        /*font-weight: bold;*/
-        /*color: #235CCD;*/
+        font-weight: bold;
+        color: black;
         text-align: center;
-        /*padding-top: 2em;*/
         filter: drop-shadow(8px 8px 10px #696969);
-        padding-left: 3em;
     }
 
     div.col-8 {
@@ -196,7 +194,7 @@
 </div>-->
 
 <form asp-action="Create" method="post" enctype="multipart/form-data">
-    <div class="p-4 rounded border row" style="background-color: #D3D3D3" ; filter: drop-shadow(8px 8px 10px gray); margin-bottom:40px">
+    <div class="p-4 rounded border row" style="background-color: #D3D3D3; filter: drop-shadow(8px 8px 10px gray); margin-bottom: 40px">
         <div asp-validation-summary="ModelOnly" class="text-danger">
         </div>
         <div class="col-8">

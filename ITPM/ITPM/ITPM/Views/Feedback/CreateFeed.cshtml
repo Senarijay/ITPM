@@ -86,6 +86,18 @@
                 text-shadow: 0 0 5px #09f;
             }
 
+        div.form-group {
+            font-size: 20px;
+            font-family: Roboto;
+            font-weight: bold;
+            color: black;
+        }
+
+        .control-label{
+            font-weight:bold;
+            
+        }
+
 
 
 
@@ -172,17 +184,17 @@
                     <div class="flex flex-col items-start justify-start w-full h-full p-10 lg:p-16 xl:p-24">
                         <div class="relative w-full mt-10 space-y-8">
                             <div id="Form" class="left">
-                                <h1 class="heading-section">FEEDBACK</h1>
+                                <h1 class="heading-section">FEEDBACK</h1><br />
                                 @*<p class="downc">Use features like smart content and conditional logic to adapt the page to the user’s needs. </p>*@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <form asp-action="CreateFeed">
                                             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                                             @*<div class="form-group">
-                                                     <label asp-for="FeedID" class="control-label"></label>
-                                                     <input asp-for="FeedID" class="form-control" />
-                                                     <span asp-validation-for="FeedID" class="text-danger"></span>
-                                                </div>*@
+             <label asp-for="FeedID" class="control-label"></label>
+             <input asp-for="FeedID" class="form-control" />
+             <span asp-validation-for="FeedID" class="text-danger"></span>
+        </div>*@
                                             <div class="row">
                                                 <div class="col">
                                                     <div class="form-group">
@@ -213,7 +225,7 @@
 
                                             <br>
                                             @*<form></form>*@
-                                            <label asp-for="St_01" class="control-label"></label>
+                                            <label asp-for="St_01" class="control-label"></label><br />
                                             <div class="rating">
                                                 <label>
                                                     <input type="radio" name="St_01" value="1" />
@@ -248,7 +260,7 @@
                                             </div>
 
                                             <br>
-                                            <label asp-for="St_02" class="control-label"></label>
+                                            <label asp-for="St_02" class="control-label"></label><br />
                                             <div class="rating">
                                                 <label>
                                                     <input type="radio" name="St_02" value="1" />
@@ -282,7 +294,7 @@
                                                 </label>
                                             </div>
                                             <br>
-                                            <label asp-for="Rate" class="control-label"></label>
+                                            <label asp-for="Rate" class="control-label"></label><br />
                                             <div class="rating">
                                                 <label>
                                                     <input type="radio" name="Rate" value="1" />
@@ -317,20 +329,20 @@
                                             </div>
 
                                             @*<div class="form-group">
-                                                    <label asp-for="St_01" class="control-label"></label>
-                                                    <input asp-for="St_01" class="form-control" />
-                                                    <span asp-validation-for="St_01" class="text-danger"></span>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label asp-for="St_02" class="control-label"></label>
-                                                    <input asp-for="St_02" class="form-control" />
-                                                    <span asp-validation-for="St_02" class="text-danger"></span>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label asp-for="Rate" class="control-label"></label>
-                                                    <input asp-for="Rate" class="form-control" />
-                                                    <span asp-validation-for="Rate" class="text-danger"></span>
-                                                </div>*@
+            <label asp-for="St_01" class="control-label"></label>
+            <input asp-for="St_01" class="form-control" />
+            <span asp-validation-for="St_01" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="St_02" class="control-label"></label>
+            <input asp-for="St_02" class="form-control" />
+            <span asp-validation-for="St_02" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Rate" class="control-label"></label>
+            <input asp-for="Rate" class="form-control" />
+            <span asp-validation-for="Rate" class="text-danger"></span>
+        </div>*@
                                             <br>
                                             <br>
                                             <div class="form-group">
